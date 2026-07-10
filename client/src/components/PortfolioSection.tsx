@@ -3,10 +3,16 @@
  * Galeria editorial assimétrica, fotos grandes dominando
  * Layout masonry com variação de tamanhos
  * Menos card-grid, mais exposição fotográfica
+ *
+ * Nota de enquadramento: a maioria das fotos reais é retrato bem alongado
+ * (celular, ~0.5 de proporção). Blocos "aspect" aqui usam proporções
+ * próximas do formato retrato original para evitar cortar demais a foto
+ * (o que sobrava em chão/parede vazios). object-top prioriza a parte de
+ * cima da foto (bancada/armários) em vez do chão.
  */
 
 import { useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MessageCircle } from "lucide-react";
 import { WHATSAPP_LINKS } from "@/lib/contact";
 
 const projects = [
@@ -16,7 +22,8 @@ const projects = [
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-ilha-madeira.jpg",
     span: "col-span-1 md:col-span-2",
-    aspect: "aspect-[16/8]",
+    aspect: "aspect-[16/9]",
+    objectPosition: "object-center",
   },
   {
     id: 2,
@@ -24,7 +31,8 @@ const projects = [
     category: "Closet",
     image: "/images/portfolio-real/closet-bege-dourado.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-top",
   },
   {
     id: 3,
@@ -32,15 +40,17 @@ const projects = [
     category: "Quarto",
     image: "/images/portfolio-real/quarto-cabeceira-led.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-center",
   },
   {
     id: 4,
     title: "Cozinha Integrada com Sala",
     category: "Sala",
     image: "/images/portfolio-real/cozinha-sala-integrada.jpg",
-    span: "col-span-1 md:col-span-2",
-    aspect: "aspect-[16/8]",
+    span: "col-span-1",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-center",
   },
   {
     id: 5,
@@ -48,7 +58,8 @@ const projects = [
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-compacta-branca.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-center",
   },
   {
     id: 6,
@@ -56,15 +67,17 @@ const projects = [
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-preta-cinza.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-top",
   },
   {
     id: 7,
     title: "Área Gourmet com Churrasqueira",
     category: "Área Gourmet",
     image: "/images/portfolio-real/area-gourmet-churrasqueira.jpg",
-    span: "col-span-1 md:col-span-2",
-    aspect: "aspect-[16/8]",
+    span: "col-span-1",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-top",
   },
   {
     id: 8,
@@ -72,7 +85,8 @@ const projects = [
     category: "Closet",
     image: "/images/portfolio-real/closet-verde-detalhe.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-center",
   },
   {
     id: 9,
@@ -80,15 +94,17 @@ const projects = [
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-marmore-cinza.jpg",
     span: "col-span-1",
-    aspect: "aspect-[4/5]",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-top",
   },
   {
     id: 10,
     title: "Cozinha com Detalhes em Madeira",
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-branca-madeira-noturna.jpg",
-    span: "col-span-1 md:col-span-2",
-    aspect: "aspect-[16/8]",
+    span: "col-span-1",
+    aspect: "aspect-[3/4]",
+    objectPosition: "object-top",
   },
 ];
 
@@ -158,7 +174,7 @@ export default function PortfolioSection() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className={`w-full h-full object-cover ${project.objectPosition} transition-transform duration-700 group-hover:scale-105`}
                 loading="lazy"
               />
               {/* Overlay */}
@@ -174,20 +190,26 @@ export default function PortfolioSection() {
               </div>
             </div>
           ))}
-        </div>
 
-        {/* Add Photo Placeholder - subtle */}
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="md:col-span-1 aspect-[4/5] rounded-lg border border-dashed border-white/8 hover:border-[#1565C0]/30 flex items-center justify-center bg-white/[0.01] hover:bg-[#1565C0]/5 transition-all duration-300">
-            <div className="text-center p-6">
-              <p className="text-gray-500 text-sm font-medium">
-                Seu projeto aqui
+          {/* WhatsApp CTA tile - replaces the empty "add your project" placeholder */}
+          <a
+            href={WHATSAPP_LINKS.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="col-span-1 aspect-[3/4] rounded-lg bg-gradient-to-br from-[#1565C0] to-[#0D47A1] flex flex-col items-center justify-center text-center p-6 gap-4 hover:shadow-xl hover:shadow-[#1565C0]/20 transition-all duration-300"
+          >
+            <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
+              <MessageCircle className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <p className="text-white font-display text-lg font-semibold">
+                Quer ver seu projeto aqui?
               </p>
-              <p className="text-gray-600 text-xs mt-1">
-                Adicione fotos dos seus móveis
+              <p className="text-blue-100 text-sm mt-1">
+                Fale com a gente e peça seu orçamento
               </p>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* CTA */}

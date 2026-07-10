@@ -98,20 +98,37 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* Image strip - large photo */}
-        <div className="mt-16 relative rounded-lg overflow-hidden aspect-[21/8]">
-          <img
-            src="/images/services-living-room.jpg"
-            alt="Sala com móveis planejados"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0E16]/80 via-transparent to-transparent" />
-          <div className="absolute bottom-8 left-8 lg:left-12 max-w-sm">
-            <p className="text-white font-display text-2xl lg:text-3xl font-bold">
+        {/* Image mosaic - real project photos instead of one over-stretched banner */}
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="relative rounded-lg overflow-hidden aspect-square">
+            <img
+              src="/images/portfolio-real/cozinha-compacta-branca.jpg"
+              alt="Cozinha planejada Casa's Decor"
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative rounded-lg overflow-hidden aspect-square">
+            <img
+              src="/images/portfolio-real/closet-bege-dourado.jpg"
+              alt="Closet planejado Casa's Decor"
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative rounded-lg overflow-hidden aspect-square">
+            <img
+              src="/images/portfolio-real/area-gourmet-churrasqueira.jpg"
+              alt="Área gourmet planejada Casa's Decor"
+              className="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative rounded-lg overflow-hidden aspect-square bg-gradient-to-br from-[#1565C0] to-[#0D47A1] flex flex-col justify-center p-6">
+            <p className="text-white font-display text-xl lg:text-2xl font-bold leading-tight">
               Cada projeto é único
             </p>
-            <p className="text-gray-300 text-sm mt-2">
+            <p className="text-blue-100 text-sm mt-2">
               Adaptamos cada solução ao seu estilo de vida e necessidades
             </p>
           </div>
