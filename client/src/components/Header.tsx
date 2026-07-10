@@ -46,7 +46,7 @@ export default function Header() {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2" onClick={() => scrollTo("#hero")}>
           <img
-            src="/images/logo.png"
+            src="/images/logo-transparent.png"
             alt="Casa's Decor"
             className="h-12 lg:h-14 w-auto"
           />

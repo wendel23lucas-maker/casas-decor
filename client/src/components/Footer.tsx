@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img
-              src="/images/logo.png"
+              src="/images/logo-transparent.png"
               alt="Casa's Decor"
               className="h-12 w-auto mb-4"
             />
