@@ -65,7 +65,7 @@ const projects = [
     title: "Área Gourmet com Churrasqueira",
     category: "Área Gourmet",
     image: "/images/portfolio-real/area-gourmet-churrasqueira.jpg",
-    objectPosition: "object-top",
+    objectPosition: "object-center",
   },
   {
     id: 8,
@@ -87,13 +87,6 @@ const projects = [
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-branca-madeira-noturna.jpg",
     objectPosition: "object-center",
-  },
-  {
-    id: 11,
-    title: "Home Office Planejado",
-    category: "Escritório",
-    image: "/images/portfolio-real/escritorio-planejado-cinza.jpg",
-    objectPosition: "object-top",
   },
   {
     id: 12,
