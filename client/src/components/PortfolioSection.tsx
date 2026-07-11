@@ -264,6 +264,7 @@ export default function PortfolioSection() {
                   ctaLabel="Falar no WhatsApp"
                   href={WHATSAPP_LINKS.portfolio}
                   size="compact"
+                  backgroundImage="/images/portfolio-real/closet-verde-detalhe.jpg"
                 />
               </CarouselItem>
             </CarouselContent>

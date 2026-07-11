@@ -1,8 +1,8 @@
 /*
  * Design: Ateliê Moderno Escuro
  * Card de call-to-action reutilizável — usado no Portfólio e no Contato
- * para manter a mesma linguagem visual (gradiente azul da marca,
- * glow sutil, linhas arquitetônicas, botão em pílula).
+ * para manter a mesma linguagem visual (foto de fundo com overlay azul
+ * da marca, glow sutil, linhas arquitetônicas, botão em pílula).
  */
 
 import type { LucideIcon } from "lucide-react";
@@ -15,6 +15,7 @@ interface GradientCTAProps {
   ctaLabel: string;
   href: string;
   size?: "compact" | "large";
+  backgroundImage?: string;
 }
 
 export default function GradientCTA({
@@ -25,6 +26,7 @@ export default function GradientCTA({
   ctaLabel,
   href,
   size = "large",
+  backgroundImage,
 }: GradientCTAProps) {
   const isCompact = size === "compact";
 
@@ -33,10 +35,23 @@ export default function GradientCTA({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden rounded-lg bg-gradient-to-br from-[#1565C0] to-[#0D47A1] flex flex-col justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-[#1565C0]/25 ${
-        isCompact ? "aspect-[3/4] p-6" : "h-full p-8 lg:p-10"
-      }`}
+      className={`group relative overflow-hidden rounded-lg flex flex-col justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-[#1565C0]/25 ${
+        !backgroundImage ? "bg-gradient-to-br from-[#1565C0] to-[#0D47A1]" : ""
+      } ${isCompact ? "aspect-[3/4] p-6" : "h-full p-8 lg:p-10"}`}
     >
+      {/* Background photo of furniture, with brand-blue overlay for contrast */}
+      {backgroundImage && (
+        <>
+          <img
+            src={backgroundImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0D47A1]/92 via-[#1565C0]/80 to-[#0D47A1]/94" />
+        </>
+      )}
+
       {/* Glow */}
       <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[#42A5F5]/25 blur-3xl group-hover:bg-[#42A5F5]/35 transition-colors duration-500" />
       {/* Architectural line motif for consistency with rest of site */}
@@ -61,7 +76,7 @@ export default function GradientCTA({
         )}
 
         <h3
-          className={`font-display font-bold text-white ${
+          className={`font-display font-bold text-white drop-shadow-sm ${
             isCompact ? "text-lg" : "text-2xl lg:text-3xl mb-4"
           }`}
         >
