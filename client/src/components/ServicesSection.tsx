@@ -97,42 +97,6 @@ export default function ServicesSection() {
             </div>
           ))}
         </div>
-
-        {/* Image mosaic - real project photos instead of one over-stretched banner */}
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="relative rounded-lg overflow-hidden aspect-square">
-            <img
-              src="/images/portfolio-real/cozinha-compacta-branca.jpg"
-              alt="Cozinha planejada Casa's Decor"
-              className="w-full h-full object-cover object-top"
-              loading="lazy"
-            />
-          </div>
-          <div className="relative rounded-lg overflow-hidden aspect-square">
-            <img
-              src="/images/portfolio-real/closet-bege-dourado.jpg"
-              alt="Closet planejado Casa's Decor"
-              className="w-full h-full object-cover object-top"
-              loading="lazy"
-            />
-          </div>
-          <div className="relative rounded-lg overflow-hidden aspect-square">
-            <img
-              src="/images/portfolio-real/area-gourmet-churrasqueira.jpg"
-              alt="Área gourmet planejada Casa's Decor"
-              className="w-full h-full object-cover object-top"
-              loading="lazy"
-            />
-          </div>
-          <div className="relative rounded-lg overflow-hidden aspect-square bg-gradient-to-br from-[#1565C0] to-[#0D47A1] flex flex-col justify-center p-6">
-            <p className="text-white font-display text-xl lg:text-2xl font-bold leading-tight">
-              Cada projeto é único
-            </p>
-            <p className="text-blue-100 text-sm mt-2">
-              Adaptamos cada solução ao seu estilo de vida e necessidades
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
