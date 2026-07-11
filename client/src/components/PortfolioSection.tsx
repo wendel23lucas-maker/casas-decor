@@ -14,6 +14,7 @@
 import { useState } from "react";
 import { ExternalLink, MessageCircle } from "lucide-react";
 import { WHATSAPP_LINKS } from "@/lib/contact";
+import GradientCTA from "./GradientCTA";
 
 const projects = [
   {
@@ -192,24 +193,14 @@ export default function PortfolioSection() {
           ))}
 
           {/* WhatsApp CTA tile - replaces the empty "add your project" placeholder */}
-          <a
+          <GradientCTA
+            icon={MessageCircle}
+            title="Quer ver seu projeto aqui?"
+            description="Fale com a gente e peça seu orçamento"
+            ctaLabel="Falar no WhatsApp"
             href={WHATSAPP_LINKS.portfolio}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="col-span-1 aspect-[3/4] rounded-lg bg-gradient-to-br from-[#1565C0] to-[#0D47A1] flex flex-col items-center justify-center text-center p-6 gap-4 hover:shadow-xl hover:shadow-[#1565C0]/20 transition-all duration-300"
-          >
-            <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
-              <MessageCircle className="w-7 h-7 text-white" />
-            </div>
-            <div>
-              <p className="text-white font-display text-lg font-semibold">
-                Quer ver seu projeto aqui?
-              </p>
-              <p className="text-blue-100 text-sm mt-1">
-                Fale com a gente e peça seu orçamento
-              </p>
-            </div>
-          </a>
+            size="compact"
+          />
         </div>
 
         {/* CTA */}

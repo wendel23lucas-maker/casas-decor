@@ -42,13 +42,13 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 lg:h-20">
+      <div className="container flex items-center justify-between h-20 lg:h-24">
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2" onClick={() => scrollTo("#hero")}>
           <img
             src="/images/logo-transparent.png"
             alt="Casa's Decor"
-            className="h-12 lg:h-14 w-auto"
+            className="h-16 lg:h-[72px] w-auto"
           />
         </a>
 

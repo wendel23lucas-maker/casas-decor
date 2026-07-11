@@ -141,7 +141,7 @@
 
   /* Evita que o header fixo cubra o topo das seções ao navegar pelas âncoras */
   section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 6rem;
   }
 
   @keyframes fadeInUp {

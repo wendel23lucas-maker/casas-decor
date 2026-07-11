@@ -23,7 +23,7 @@ export default function Footer() {
             <img
               src="/images/logo-transparent.png"
               alt="Casa's Decor"
-              className="h-12 w-auto mb-4"
+              className="h-16 w-auto mb-4"
             />
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
               Marcenaria especializada em móveis planejados. Transformamos
