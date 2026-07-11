@@ -91,7 +91,7 @@ const projects = [
     title: "Cozinha com Detalhes em Madeira",
     category: "Cozinha",
     image: "/images/portfolio-real/cozinha-branca-madeira-noturna.jpg",
-    objectPosition: "object-top",
+    objectPosition: "object-center",
   },
   {
     id: 11,
