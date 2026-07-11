@@ -5,8 +5,10 @@
  * manuais e indicadores. Fotos reais de projetos entregues.
  *
  * Nota de enquadramento: a maioria das fotos reais é retrato bem alongado
- * (celular, proporção ~0.55-0.75). Usamos aspect-[3/4] + object-top para
- * evitar cortar demais a foto (o que sobrava em chão/parede vazios).
+ * (celular, proporção ~0.55-0.75). Usamos aspect-[2/3] (mais vertical que
+ * o antigo 3/4) para reduzir o corte, + object-top nas mais estreitas.
+ * A única foto paisagem (mesma do hero) foi removida daqui — num card
+ * vertical ela perdia mais da metade da largura.
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -23,13 +25,6 @@ import {
 } from "@/components/ui/carousel";
 
 const projects = [
-  {
-    id: 1,
-    title: "Cozinha com Ilha em Madeira",
-    category: "Cozinha",
-    image: "/images/portfolio-real/cozinha-ilha-madeira.jpg",
-    objectPosition: "object-center",
-  },
   {
     id: 2,
     title: "Closet Planejado com Nichos",
@@ -235,7 +230,7 @@ export default function PortfolioSection() {
                   key={project.id}
                   className="basis-[85%] sm:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[3/4]">
+                  <div className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[2/3]">
                     <img
                       src={project.image}
                       alt={project.title}
