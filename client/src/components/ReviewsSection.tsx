@@ -91,7 +91,7 @@ export default function ReviewsSection() {
                 {review.text}
               </p>
               <div className="flex items-center gap-1.5 mt-5 pt-4 border-t border-white/5">
-                <span className="text-gray-600 text-xs">Avaliação verificada no</span>
+                <span className="text-gray-400 text-xs">Avaliação verificada no</span>
                 <span className="text-gray-400 text-xs font-semibold">Google</span>
               </div>
             </div>

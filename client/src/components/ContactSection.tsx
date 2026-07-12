@@ -54,7 +54,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-white font-semibold text-lg">WhatsApp</h3>
                 <p className="text-gray-400 text-sm mt-1">{PHONE_DISPLAY}</p>
-                <p className="text-gray-600 text-xs mt-2 group-hover:text-[#42A5F5] transition-colors">
+                <p className="text-gray-400 text-xs mt-2 group-hover:text-[#42A5F5] transition-colors">
                   Clique para enviar mensagem →
                 </p>
               </div>
@@ -73,7 +73,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-white font-semibold text-lg">Instagram</h3>
                 <p className="text-gray-400 text-sm mt-1">{INSTAGRAM_HANDLE}</p>
-                <p className="text-gray-600 text-xs mt-2 group-hover:text-[#42A5F5] transition-colors">
+                <p className="text-gray-400 text-xs mt-2 group-hover:text-[#42A5F5] transition-colors">
                   Siga para ver mais projetos →
                 </p>
               </div>

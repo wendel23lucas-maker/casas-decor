@@ -107,11 +107,11 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-400 text-xs">
             &copy; {new Date().getFullYear()} Casa's Decor - Móveis Planejados.
             Todos os direitos reservados.
           </p>
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-400 text-xs">
             Valinhos, SP - Brasil
           </p>
         </div>
