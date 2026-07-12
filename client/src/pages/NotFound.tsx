@@ -1,49 +1,49 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
+import { Home, MessageCircle } from "lucide-react";
 import { useLocation } from "wouter";
+import { WHATSAPP_LINKS } from "@/lib/contact";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
 
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#0A0A0F] px-4">
+      <div className="text-center max-w-md">
+        <img
+          src="/images/logo-transparent.png"
+          alt="Casa's Decor"
+          className="h-14 w-auto mx-auto mb-10"
+        />
 
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
+        <p className="font-display text-7xl font-bold text-white leading-none">
+          404
+        </p>
+        <h1 className="text-white text-xl font-semibold mt-4">
+          Página não encontrada
+        </h1>
+        <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+          O link que você acessou pode ter mudado ou não existe mais. Vamos
+          te levar de volta pra página inicial.
+        </p>
 
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+          <button
+            onClick={() => setLocation("/")}
+            className="inline-flex items-center justify-center gap-2 bg-[#1565C0] hover:bg-[#1256A8] text-white font-semibold px-6 py-3 rounded-md text-sm transition-colors duration-200"
+          >
+            <Home className="w-4 h-4" />
+            Voltar ao início
+          </button>
+          <a
+            href={WHATSAPP_LINKS.default}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-white/25 text-white font-medium px-6 py-3 rounded-md text-sm transition-colors duration-200"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

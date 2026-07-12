@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://casasdecor.vercel.app/sitemap.xml
+Sitemap: https://www.casasdecorplanejados.com.br/sitemap.xml
