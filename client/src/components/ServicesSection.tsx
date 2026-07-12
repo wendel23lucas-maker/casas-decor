@@ -55,12 +55,25 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="servicos" className="relative py-28 lg:py-36 bg-[#0E0E16]">
+    <section id="servicos" className="relative py-28 lg:py-36 bg-[#0E0E16] overflow-hidden">
+      {/* Background photo, heavily darkened so text stays fully legible */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/portfolio-real/cozinha-branca-madeira-noturna.webp"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center opacity-25"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-[#0E0E16]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0E0E16] via-transparent to-[#0E0E16]" />
+      </div>
+
       {/* Architectural lines */}
       <div className="absolute top-0 left-[20%] w-px h-40 bg-gradient-to-b from-transparent via-[#1565C0]/10 to-transparent" />
       <div className="absolute top-0 right-[10%] w-px h-20 bg-gradient-to-b from-transparent via-[#1565C0]/10 to-transparent" />
 
-      <div className="container">
+      <div className="container relative z-10">
         {/* Section Header - left aligned */}
         <div className="max-w-2xl mb-16">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">

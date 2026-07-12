@@ -37,7 +37,7 @@ export default function GradientCTA({
       rel="noopener noreferrer"
       className={`group relative overflow-hidden rounded-lg flex flex-col justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-[#1565C0]/25 ${
         !backgroundImage ? "bg-gradient-to-br from-[#1565C0] to-[#0D47A1]" : ""
-      } ${isCompact ? "aspect-[3/4] p-6" : "h-full p-8 lg:p-10"}`}
+      } ${isCompact ? "aspect-[2/3] p-6" : "h-full p-8 lg:p-10"}`}
     >
       {/* Background photo of furniture, with brand-blue overlay for contrast */}
       {backgroundImage && (

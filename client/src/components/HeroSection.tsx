@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Full-bleed background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-bg.jpg"
+          src="/images/hero-bg.webp"
           alt="Cozinha planejada moderna Casa's Decor"
           className="w-full h-full object-cover scale-105"
         />

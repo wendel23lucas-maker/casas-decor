@@ -3,8 +3,10 @@ import HeroSection from "@/components/HeroSection";
 import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import TipsSection from "@/components/TipsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -18,8 +20,10 @@ export default function Home() {
         <DifferentiatorsSection />
         <ServicesSection />
         <PortfolioSection />
+        <TipsSection />
         <ReviewsSection />
         <AboutSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />
