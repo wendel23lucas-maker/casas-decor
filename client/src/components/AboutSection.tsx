@@ -16,15 +16,21 @@ export default function AboutSection() {
 
       <div className="container">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-          {/* Portrait photo - spans 2 cols, matches the phone-photo aspect ratio */}
-          <div className="lg:col-span-2 relative rounded-lg overflow-hidden aspect-[3/4]">
+          {/* Portrait photo - spans 2 cols, matches the phone-photo aspect ratio.
+              Edges fade into the background via a mask (no hard rectangle frame). */}
+          <div className="lg:col-span-2 relative aspect-[3/4]">
             <img
               src="/images/portfolio-real/cozinha-sala-integrada.jpg"
               alt="Projeto Casa's Decor - cozinha integrada com sala"
               className="w-full h-full object-cover"
               loading="lazy"
+              style={{
+                maskImage:
+                  "radial-gradient(ellipse 78% 82% at center, black 50%, transparent 96%)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 78% 82% at center, black 50%, transparent 96%)",
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F]/50 via-transparent to-transparent" />
           </div>
 
           {/* Text - spans 3 cols */}
