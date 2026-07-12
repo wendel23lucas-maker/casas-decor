@@ -6,6 +6,7 @@
  */
 
 import { Clock, Layers, Users, Box, CreditCard } from "lucide-react";
+import Reveal from "./Reveal";
 
 const differentiators = [
   {
@@ -54,7 +55,7 @@ export default function DifferentiatorsSection() {
 
       <div className="container">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <Reveal className="max-w-2xl mb-16">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             O que nos diferencia dos demais
           </span>
@@ -62,32 +63,31 @@ export default function DifferentiatorsSection() {
             Não fazemos móveis — criamos ambientes que{" "}
             <span className="text-[#42A5F5]">refletem quem você é</span>.
           </h2>
-        </div>
+        </Reveal>
 
         {/* Numbered editorial list */}
         <div className="divide-y divide-white/5 border-t border-b border-white/5">
-          {differentiators.map((item) => (
-            <div
-              key={item.number}
-              className="group grid grid-cols-1 sm:grid-cols-[auto_auto_1fr] items-start sm:items-center gap-4 sm:gap-8 py-8 hover:bg-white/[0.015] transition-colors duration-300 px-2 -mx-2"
-            >
-              <span className="font-display text-2xl font-bold text-white/15 group-hover:text-[#1565C0]/40 transition-colors duration-300 tabular-nums">
-                {item.number}
-              </span>
+          {differentiators.map((item, index) => (
+            <Reveal key={item.number} delay={index * 0.06} y={16}>
+              <div className="group grid grid-cols-1 sm:grid-cols-[auto_auto_1fr] items-start sm:items-center gap-4 sm:gap-8 py-8 hover:bg-white/[0.015] transition-colors duration-300 px-2 -mx-2">
+                <span className="font-display text-2xl font-bold text-white/15 group-hover:text-[#1565C0]/40 transition-colors duration-300 tabular-nums">
+                  {item.number}
+                </span>
 
-              <div className="w-12 h-12 rounded-full border border-white/8 flex items-center justify-center shrink-0 group-hover:border-[#1565C0]/40 transition-colors duration-300">
-                <item.icon className="w-5 h-5 text-gray-500 group-hover:text-[#42A5F5] transition-colors duration-300" />
-              </div>
+                <div className="w-12 h-12 rounded-full border border-white/8 flex items-center justify-center shrink-0 group-hover:border-[#1565C0]/40 transition-colors duration-300">
+                  <item.icon className="w-5 h-5 text-gray-500 group-hover:text-[#42A5F5] transition-colors duration-300" />
+                </div>
 
-              <div>
-                <h3 className="text-white font-display text-xl font-semibold mb-1.5 group-hover:text-[#42A5F5] transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-                  {item.description}
-                </p>
+                <div>
+                  <h3 className="text-white font-display text-xl font-semibold mb-1.5 group-hover:text-[#42A5F5] transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

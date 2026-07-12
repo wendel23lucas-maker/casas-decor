@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ADDRESS, WHATSAPP_LINKS } from "@/lib/contact";
+import Reveal from "./Reveal";
 
 const faqs = [
   {
@@ -52,7 +53,7 @@ export default function FAQSection() {
       <div className="container">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Header - sticky on desktop */}
-          <div className="lg:col-span-2">
+          <Reveal className="lg:col-span-2" delay={0}>
             <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
               Dúvidas Frequentes
             </span>
@@ -73,10 +74,10 @@ export default function FAQSection() {
             >
               Falar no WhatsApp →
             </a>
-          </div>
+          </Reveal>
 
           {/* Accordion */}
-          <div className="lg:col-span-3">
+          <Reveal className="lg:col-span-3" delay={0.1}>
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem
@@ -93,7 +94,7 @@ export default function FAQSection() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

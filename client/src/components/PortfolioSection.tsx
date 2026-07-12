@@ -16,6 +16,7 @@ import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINKS } from "@/lib/contact";
 import GradientCTA from "./GradientCTA";
 import PortfolioLightbox from "./PortfolioLightbox";
+import Reveal from "./Reveal";
 import {
   Carousel,
   CarouselContent,
@@ -177,7 +178,7 @@ export default function PortfolioSection() {
 
       <div className="container">
         {/* Section Header - left aligned, not centered */}
-        <div className="max-w-2xl mb-14">
+        <Reveal className="max-w-2xl mb-14">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Portfólio
           </span>
@@ -188,7 +189,7 @@ export default function PortfolioSection() {
             Cada ambiente conta uma história. Confira nossos trabalhos recentes
             e inspire-se para o seu próximo projeto.
           </p>
-        </div>
+        </Reveal>
 
         {/* Filters */}
         <div className="flex flex-wrap gap-3 mb-14">
