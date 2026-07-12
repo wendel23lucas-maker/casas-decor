@@ -20,7 +20,7 @@ export default function AboutSection() {
               Edges fade into the background via a mask (no hard rectangle frame). */}
           <div className="lg:col-span-2 relative aspect-[3/4]">
             <img
-              src="/images/portfolio-real/cozinha-sala-integrada.jpg"
+              src="/images/portfolio-real/cozinha-sala-integrada.webp"
               alt="Projeto Casa's Decor - cozinha integrada com sala"
               className="w-full h-full object-cover"
               loading="lazy"

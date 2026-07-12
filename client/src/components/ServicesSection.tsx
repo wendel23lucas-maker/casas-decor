@@ -59,7 +59,7 @@ export default function ServicesSection() {
       {/* Background photo, heavily darkened so text stays fully legible */}
       <div className="absolute inset-0">
         <img
-          src="/images/portfolio-real/cozinha-branca-madeira-noturna.jpg"
+          src="/images/portfolio-real/cozinha-branca-madeira-noturna.webp"
           alt=""
           aria-hidden="true"
           className="w-full h-full object-cover object-center opacity-25"

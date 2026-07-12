@@ -29,91 +29,91 @@ const projects = [
     id: 2,
     title: "Closet Planejado com Nichos",
     category: "Closet",
-    image: "/images/portfolio-real/closet-bege-dourado.jpg",
+    image: "/images/portfolio-real/closet-bege-dourado.webp",
     objectPosition: "object-top",
   },
   {
     id: 3,
     title: "Quarto com Cabeceira Iluminada",
     category: "Quarto",
-    image: "/images/portfolio-real/quarto-cabeceira-led.jpg",
+    image: "/images/portfolio-real/quarto-cabeceira-led.webp",
     objectPosition: "object-center",
   },
   {
     id: 4,
     title: "Cozinha Integrada com Sala",
     category: "Sala",
-    image: "/images/portfolio-real/cozinha-sala-integrada.jpg",
+    image: "/images/portfolio-real/cozinha-sala-integrada.webp",
     objectPosition: "object-center",
   },
   {
     id: 5,
     title: "Cozinha Compacta em Corredor",
     category: "Cozinha",
-    image: "/images/portfolio-real/cozinha-compacta-branca.jpg",
+    image: "/images/portfolio-real/cozinha-compacta-branca.webp",
     objectPosition: "object-center",
   },
   {
     id: 6,
     title: "Cozinha em Tons de Cinza",
     category: "Cozinha",
-    image: "/images/portfolio-real/cozinha-preta-cinza.jpg",
+    image: "/images/portfolio-real/cozinha-preta-cinza.webp",
     objectPosition: "object-top",
   },
   {
     id: 7,
     title: "Área Gourmet com Churrasqueira",
     category: "Área Gourmet",
-    image: "/images/portfolio-real/area-gourmet-churrasqueira.jpg",
+    image: "/images/portfolio-real/area-gourmet-churrasqueira.webp",
     objectPosition: "object-center",
   },
   {
     id: 8,
     title: "Closet com Portas de Vidro Canelado",
     category: "Closet",
-    image: "/images/portfolio-real/closet-verde-detalhe.jpg",
+    image: "/images/portfolio-real/closet-verde-detalhe.webp",
     objectPosition: "object-center",
   },
   {
     id: 9,
     title: "Cozinha com Acabamento em Mármore",
     category: "Cozinha",
-    image: "/images/portfolio-real/cozinha-marmore-cinza.jpg",
+    image: "/images/portfolio-real/cozinha-marmore-cinza.webp",
     objectPosition: "object-top",
   },
   {
     id: 10,
     title: "Cozinha com Detalhes em Madeira",
     category: "Cozinha",
-    image: "/images/portfolio-real/cozinha-branca-madeira-noturna.jpg",
+    image: "/images/portfolio-real/cozinha-branca-madeira-noturna.webp",
     objectPosition: "object-center",
   },
   {
     id: 12,
     title: "Cantinho Bar com Estofado",
     category: "Sala",
-    image: "/images/portfolio-real/sala-cantinho-bar.jpg",
+    image: "/images/portfolio-real/sala-cantinho-bar.webp",
     objectPosition: "object-center",
   },
   {
     id: 13,
     title: "Escritório com Adega",
     category: "Escritório",
-    image: "/images/portfolio-real/escritorio-com-adega.jpg",
+    image: "/images/portfolio-real/escritorio-com-adega.webp",
     objectPosition: "object-center",
   },
   {
     id: 14,
     title: "Bancada com Cuba Redonda",
     category: "Banheiro",
-    image: "/images/portfolio-real/banheiro-cuba-redonda.jpg",
+    image: "/images/portfolio-real/banheiro-cuba-redonda.webp",
     objectPosition: "object-top",
   },
   {
     id: 15,
     title: "Banheiro com Detalhes em Dourado",
     category: "Banheiro",
-    image: "/images/portfolio-real/banheiro-preto-dourado.jpg",
+    image: "/images/portfolio-real/banheiro-preto-dourado.webp",
     objectPosition: "object-top",
   },
 ];
@@ -252,7 +252,7 @@ export default function PortfolioSection() {
                   ctaLabel="Falar no WhatsApp"
                   href={WHATSAPP_LINKS.portfolio}
                   size="compact"
-                  backgroundImage="/images/portfolio-real/closet-verde-detalhe.jpg"
+                  backgroundImage="/images/portfolio-real/closet-verde-detalhe.webp"
                 />
               </CarouselItem>
             </CarouselContent>

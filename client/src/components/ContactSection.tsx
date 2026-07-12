@@ -126,7 +126,7 @@ export default function ContactSection() {
               description="Envie uma mensagem no WhatsApp com medidas do ambiente, fotos e suas ideias. Nossa equipe responderá em até 2 horas."
               ctaLabel="Falar pelo WhatsApp"
               href={WHATSAPP_LINKS.default}
-              backgroundImage="/images/portfolio-real/cozinha-preta-cinza.jpg"
+              backgroundImage="/images/portfolio-real/cozinha-preta-cinza.webp"
             />
           </div>
         </div>
