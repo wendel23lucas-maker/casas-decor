@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import InstagramSection from "@/components/InstagramSection";
 import TipsSection from "@/components/TipsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
@@ -20,6 +21,7 @@ export default function Home() {
         <DifferentiatorsSection />
         <ServicesSection />
         <PortfolioSection />
+        <InstagramSection />
         <TipsSection />
         <ReviewsSection />
         <AboutSection />

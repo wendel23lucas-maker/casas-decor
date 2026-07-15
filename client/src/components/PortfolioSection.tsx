@@ -118,6 +118,34 @@ const projects = [
     image: "/images/portfolio-real/banheiro-preto-dourado.webp",
     objectPosition: "object-top",
   },
+  {
+    id: 16,
+    title: "Banheiro com Espelheira Iluminada",
+    category: "Banheiro",
+    image: "/images/portfolio-real/banheiro-marmore-preto.webp",
+    objectPosition: "object-center",
+  },
+  {
+    id: 17,
+    title: "Home Office com Estante Planejada",
+    category: "Escritório",
+    image: "/images/portfolio-real/home-office-estante-livros.webp",
+    objectPosition: "object-center",
+  },
+  {
+    id: 18,
+    title: "Lavabo com Bancada em Granito",
+    category: "Banheiro",
+    image: "/images/portfolio-real/banheiro-bancada-granito.webp",
+    objectPosition: "object-center",
+  },
+  {
+    id: 19,
+    title: "Sala com Estante e Adega Climatizada",
+    category: "Sala",
+    image: "/images/portfolio-real/sala-estante-adega.webp",
+    objectPosition: "object-center",
+  },
 ];
 
 const filters = [
