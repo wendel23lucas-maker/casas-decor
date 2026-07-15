@@ -6,6 +6,7 @@
  */
 
 import { Lightbulb, Ruler, Palette, Wallet } from "lucide-react";
+import Reveal from "./Reveal";
 
 const tips = [
   {
@@ -36,7 +37,7 @@ export default function TipsSection() {
       <div className="absolute top-0 right-[12%] w-px h-24 bg-gradient-to-b from-transparent via-[#1565C0]/10 to-transparent" />
 
       <div className="container">
-        <div className="max-w-xl mb-14">
+        <Reveal className="max-w-xl mb-14">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Dicas
           </span>
@@ -46,26 +47,25 @@ export default function TipsSection() {
           <p className="text-gray-400 mt-4 text-base leading-relaxed">
             Um pouco do que aprendemos entregando projetos ao longo dos anos.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 gap-5">
           {tips.map((tip, index) => {
             const Icon = tip.icon;
             return (
-              <div
-                key={index}
-                className="p-6 rounded-lg border border-white/5 bg-white/[0.015] hover:border-[#1565C0]/25 transition-colors duration-300"
-              >
-                <div className="w-10 h-10 rounded-full border border-[#1565C0]/20 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-[#42A5F5]" />
+              <Reveal key={index} delay={(index % 2) * 0.1}>
+                <div className="p-6 rounded-lg border border-white/5 bg-white/[0.015] hover:border-[#1565C0]/25 transition-colors duration-300 h-full">
+                  <div className="w-10 h-10 rounded-full border border-[#1565C0]/20 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#42A5F5]" />
+                  </div>
+                  <h3 className="text-white text-base font-semibold leading-snug">
+                    {tip.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-2 leading-relaxed">
+                    {tip.text}
+                  </p>
                 </div>
-                <h3 className="text-white text-base font-semibold leading-snug">
-                  {tip.title}
-                </h3>
-                <p className="text-gray-400 text-sm mt-2 leading-relaxed">
-                  {tip.text}
-                </p>
-              </div>
+              </Reveal>
             );
           })}
         </div>

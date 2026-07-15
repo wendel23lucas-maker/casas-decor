@@ -13,6 +13,7 @@ import {
   Shirt,
   BookOpen,
 } from "lucide-react";
+import Reveal from "./Reveal";
 
 const services = [
   {
@@ -75,7 +76,7 @@ export default function ServicesSection() {
 
       <div className="container relative z-10">
         {/* Section Header - left aligned */}
-        <div className="max-w-2xl mb-16">
+        <Reveal className="max-w-2xl mb-16">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Serviços
           </span>
@@ -86,28 +87,26 @@ export default function ServicesSection() {
             Do projeto à instalação, oferecemos soluções completas em móveis
             planejados para todos os espaços da sua casa.
           </p>
-        </div>
+        </Reveal>
 
         {/* Services - Editorial list with icons, not card grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
           {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="group flex items-start gap-4"
-              style={{ animationDelay: `${index * 60}ms` }}
-            >
-              <div className="w-10 h-10 rounded-full border border-white/8 flex items-center justify-center shrink-0 mt-0.5 group-hover:border-[#1565C0]/40 transition-colors duration-300">
-                <service.icon className="w-5 h-5 text-gray-500 group-hover:text-[#42A5F5] transition-colors duration-300" />
+            <Reveal key={service.title} delay={(index % 3) * 0.08} y={16}>
+              <div className="group flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full border border-white/8 flex items-center justify-center shrink-0 mt-0.5 group-hover:border-[#1565C0]/40 transition-colors duration-300">
+                  <service.icon className="w-5 h-5 text-gray-500 group-hover:text-[#42A5F5] transition-colors duration-300" />
+                </div>
+                <div>
+                  <h3 className="text-white font-display text-lg font-semibold mb-1.5 group-hover:text-[#42A5F5] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-white font-display text-lg font-semibold mb-1.5 group-hover:text-[#42A5F5] transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -16,6 +16,7 @@ import {
   GOOGLE_MAPS_DIRECTIONS_URL,
 } from "@/lib/contact";
 import GradientCTA from "./GradientCTA";
+import Reveal from "./Reveal";
 
 export default function ContactSection() {
   return (
@@ -25,7 +26,7 @@ export default function ContactSection() {
 
       <div className="container">
         {/* Section Header */}
-        <div className="max-w-2xl mb-14">
+        <Reveal className="max-w-2xl mb-14">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Contato
           </span>
@@ -36,11 +37,11 @@ export default function ContactSection() {
             Entre em contato para solicitar um orçamento sem compromisso.
             Respondemos rapidamente!
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-12 gap-10">
           {/* Contact Info - 7 cols */}
-          <div className="lg:col-span-7 space-y-6">
+          <Reveal className="lg:col-span-7 space-y-6" delay={0}>
             {/* WhatsApp - primary */}
             <a
               href={WHATSAPP_LINKS.default}
@@ -115,10 +116,10 @@ export default function ContactSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* WhatsApp CTA - 5 cols, prominent */}
-          <div className="lg:col-span-5">
+          <Reveal className="lg:col-span-5" delay={0.15}>
             <GradientCTA
               icon={Send}
               eyebrow="Orçamento rápido"
@@ -128,11 +129,11 @@ export default function ContactSection() {
               href={WHATSAPP_LINKS.default}
               backgroundImage="/images/portfolio-real/cozinha-preta-cinza.webp"
             />
-          </div>
+          </Reveal>
         </div>
 
         {/* Map */}
-        <div className="mt-16 rounded-lg overflow-hidden border border-white/5">
+        <Reveal className="mt-16 rounded-lg overflow-hidden border border-white/5">
           <iframe
             src={GOOGLE_MAPS_EMBED_URL}
             width="100%"
@@ -144,7 +145,7 @@ export default function ContactSection() {
             title="Localização Casa's Decor"
             className="w-full"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

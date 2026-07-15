@@ -1,6 +1,7 @@
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import CookieConsent from "./components/CookieConsent";
 import Home from "./pages/Home";
 
 function Router() {
@@ -17,6 +18,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Router />
+      <CookieConsent />
     </ErrorBoundary>
   );
 }

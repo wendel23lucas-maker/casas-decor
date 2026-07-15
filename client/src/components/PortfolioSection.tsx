@@ -15,6 +15,8 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINKS } from "@/lib/contact";
 import GradientCTA from "./GradientCTA";
+import PortfolioLightbox from "./PortfolioLightbox";
+import Reveal from "./Reveal";
 import {
   Carousel,
   CarouselContent,
@@ -136,6 +138,7 @@ export default function PortfolioSection() {
   const [api, setApi] = useState<CarouselApi>();
   const [isPaused, setIsPaused] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const filteredProjects =
@@ -143,7 +146,7 @@ export default function PortfolioSection() {
       ? projects
       : projects.filter((p) => p.category === activeFilter);
 
-  // Autoplay: advance one slide every few seconds, pausing on hover/touch
+  // Autoplay: advance one slide every few seconds, pausing on hover/touch/lightbox
   useEffect(() => {
     if (!api) return;
 
@@ -153,7 +156,7 @@ export default function PortfolioSection() {
 
     if (autoplayRef.current) clearInterval(autoplayRef.current);
     autoplayRef.current = setInterval(() => {
-      if (isPaused) return;
+      if (isPaused || lightboxIndex !== null) return;
       if (api.canScrollNext()) {
         api.scrollNext();
       } else {
@@ -165,7 +168,7 @@ export default function PortfolioSection() {
       api.off("select", onSelect);
       if (autoplayRef.current) clearInterval(autoplayRef.current);
     };
-  }, [api, isPaused]);
+  }, [api, isPaused, lightboxIndex]);
 
   return (
     <section id="portfolio" className="relative py-28 lg:py-36 bg-[#0A0A0F]">
@@ -175,7 +178,7 @@ export default function PortfolioSection() {
 
       <div className="container">
         {/* Section Header - left aligned, not centered */}
-        <div className="max-w-2xl mb-14">
+        <Reveal className="max-w-2xl mb-14">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Portfólio
           </span>
@@ -186,7 +189,7 @@ export default function PortfolioSection() {
             Cada ambiente conta uma história. Confira nossos trabalhos recentes
             e inspire-se para o seu próximo projeto.
           </p>
-        </div>
+        </Reveal>
 
         {/* Filters */}
         <div className="flex flex-wrap gap-3 mb-14">
@@ -218,12 +221,15 @@ export default function PortfolioSection() {
             className="px-1"
           >
             <CarouselContent>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, projectIndex) => (
                 <CarouselItem
                   key={project.id}
                   className="basis-[85%] sm:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[2/3]">
+                  <div
+                    onClick={() => setLightboxIndex(projectIndex)}
+                    className="group relative overflow-hidden rounded-lg cursor-pointer aspect-[2/3]"
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
@@ -278,6 +284,15 @@ export default function PortfolioSection() {
           </div>
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <PortfolioLightbox
+          projects={filteredProjects}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={setLightboxIndex}
+        />
+      )}
     </section>
   );
 }

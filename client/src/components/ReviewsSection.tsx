@@ -12,6 +12,7 @@ import {
   GOOGLE_REVIEWS_URL,
   GOOGLE_WRITE_REVIEW_URL,
 } from "@/lib/contact";
+import Reveal from "./Reveal";
 
 const reviews = [
   {
@@ -45,56 +46,57 @@ export default function ReviewsSection() {
 
       <div className="container">
         {/* Header */}
-        <div className="max-w-xl mb-14">
+        <Reveal className="max-w-xl mb-14">
           <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
             Avaliações
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mt-5 leading-[1.1]">
             O que dizem no Google
           </h2>
-        </div>
+        </Reveal>
 
         {/* Rating highlight card + reviews grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
           {/* Rating summary - highlighted card */}
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-lg p-6 flex flex-col justify-center items-center text-center gap-2 bg-gradient-to-br from-[#1565C0] to-[#0D47A1] hover:shadow-2xl hover:shadow-[#1565C0]/25 transition-all duration-300"
-          >
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#42A5F5]/25 blur-3xl group-hover:bg-[#42A5F5]/35 transition-colors duration-500" />
-            <span className="relative text-[#BBDEFB] text-xs font-semibold uppercase tracking-[0.15em]">
-              Nota no Google
-            </span>
-            <p className="relative font-display text-6xl font-bold text-white leading-none mt-2">
-              {GOOGLE_RATING.toFixed(1)}
-            </p>
-            <Stars size="w-5 h-5" />
-            <p className="relative text-blue-100/80 text-xs mt-1">
-              {GOOGLE_REVIEW_COUNT} avaliações
-            </p>
-            <span className="relative text-white text-xs font-medium mt-3 underline decoration-white/30 underline-offset-4 group-hover:decoration-white transition-colors">
-              Ver todas no Google →
-            </span>
-          </a>
+          <Reveal delay={0}>
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-lg p-6 h-full flex flex-col justify-center items-center text-center gap-2 bg-gradient-to-br from-[#1565C0] to-[#0D47A1] hover:shadow-2xl hover:shadow-[#1565C0]/25 transition-all duration-300"
+            >
+              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#42A5F5]/25 blur-3xl group-hover:bg-[#42A5F5]/35 transition-colors duration-500" />
+              <span className="relative text-[#BBDEFB] text-xs font-semibold uppercase tracking-[0.15em]">
+                Nota no Google
+              </span>
+              <p className="relative font-display text-6xl font-bold text-white leading-none mt-2">
+                {GOOGLE_RATING.toFixed(1)}
+              </p>
+              <Stars size="w-5 h-5" />
+              <p className="relative text-blue-100/80 text-xs mt-1">
+                {GOOGLE_REVIEW_COUNT} avaliações
+              </p>
+              <span className="relative text-white text-xs font-medium mt-3 underline decoration-white/30 underline-offset-4 group-hover:decoration-white transition-colors">
+                Ver todas no Google →
+              </span>
+            </a>
+          </Reveal>
 
           {/* Review cards */}
           {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="relative p-6 rounded-lg border border-white/5 bg-white/[0.015] hover:border-[#1565C0]/25 transition-colors duration-300 flex flex-col"
-            >
-              <Quote className="w-6 h-6 text-[#1565C0]/40 mb-3" fill="currentColor" />
-              <Stars />
-              <p className="text-gray-400 text-sm leading-relaxed mt-4 flex-1">
-                {review.text}
-              </p>
-              <div className="flex items-center gap-1.5 mt-5 pt-4 border-t border-white/5">
-                <span className="text-gray-400 text-xs">Avaliação verificada no</span>
-                <span className="text-gray-400 text-xs font-semibold">Google</span>
+            <Reveal key={index} delay={(index + 1) * 0.08}>
+              <div className="relative p-6 rounded-lg border border-white/5 bg-white/[0.015] hover:border-[#1565C0]/25 transition-colors duration-300 flex flex-col h-full">
+                <Quote className="w-6 h-6 text-[#1565C0]/40 mb-3" fill="currentColor" />
+                <Stars />
+                <p className="text-gray-400 text-sm leading-relaxed mt-4 flex-1">
+                  {review.text}
+                </p>
+                <div className="flex items-center gap-1.5 mt-5 pt-4 border-t border-white/5">
+                  <span className="text-gray-400 text-xs">Avaliação verificada no</span>
+                  <span className="text-gray-400 text-xs font-semibold">Google</span>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 

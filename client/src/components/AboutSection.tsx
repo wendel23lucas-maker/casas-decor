@@ -7,6 +7,7 @@
 
 import { Award, Clock, MapPin, Phone } from "lucide-react";
 import { PHONE_DISPLAY, ADDRESS, HOURS } from "@/lib/contact";
+import Reveal from "./Reveal";
 
 export default function AboutSection() {
   return (
@@ -18,7 +19,7 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
           {/* Portrait photo - spans 2 cols, matches the phone-photo aspect ratio.
               Edges fade into the background via a mask (no hard rectangle frame). */}
-          <div className="lg:col-span-2 relative aspect-[3/4]">
+          <Reveal className="lg:col-span-2 relative aspect-[3/4]" delay={0}>
             <img
               src="/images/portfolio-real/cozinha-sala-integrada.webp"
               alt="Projeto Casa's Decor - cozinha integrada com sala"
@@ -31,10 +32,10 @@ export default function AboutSection() {
                   "radial-gradient(ellipse 78% 82% at center, black 50%, transparent 96%)",
               }}
             />
-          </div>
+          </Reveal>
 
           {/* Text - spans 3 cols */}
-          <div className="lg:col-span-3">
+          <Reveal className="lg:col-span-3" delay={0.15}>
             <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
               Sobre Nós
             </span>
@@ -122,7 +123,7 @@ export default function AboutSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
