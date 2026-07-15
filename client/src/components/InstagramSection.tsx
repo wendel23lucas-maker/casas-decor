@@ -1,113 +1,118 @@
 /*
  * Design: Ateliê Moderno Escuro
- * Mini-grade estilo Instagram com fotos (e, opcionalmente, vídeos
- * curtos em loop) reais do portfólio — sem depender de API/token do
- * Meta ou widget de terceiros. Ao passar o mouse mostra ícones de
- * curtir/comentar; tiles de vídeo tocam em loop mudo automaticamente.
- * Cada tile + o botão principal linkam pro perfil real.
+ * Vídeo real em destaque (formato vertical, como um Reels), em vez
+ * de grade de fotos — toca em loop mudo, com botão de som e CTA
+ * pro perfil real do Instagram ao lado.
  *
- * Pra adicionar um vídeo: solte o arquivo .mp4 em
- * client/public/videos/ e troque o item correspondente pra
- * { type: "video", src: "/videos/arquivo.mp4", poster: "/images/..." }
+ * Pra adicionar mais vídeos depois: solte o .mp4 em
+ * client/public/videos/ e adicione um objeto ao array `videos`.
  */
 
-import { Heart, MessageCircle, Instagram, Play } from "lucide-react";
+import { useRef, useState } from "react";
+import { Instagram, Volume2, VolumeX, Play } from "lucide-react";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/contact";
 import Reveal from "./Reveal";
 
-type Post =
-  | { type: "image"; src: string; likes: number; comments: number }
-  | { type: "video"; src: string; poster?: string; likes: number; comments: number };
-
-const posts: Post[] = [
-  { type: "image", src: "/images/portfolio-real/cozinha-branca-madeira-noturna.webp", likes: 84, comments: 6 },
-  { type: "video", src: "/videos/sala-tv-tour.mp4", poster: "/images/portfolio-real/sala-tv-tour-poster.webp", likes: 116, comments: 14 },
-  { type: "image", src: "/images/portfolio-real/banheiro-preto-dourado.webp", likes: 97, comments: 9 },
-  { type: "image", src: "/images/portfolio-real/cozinha-marmore-cinza.webp", likes: 71, comments: 5 },
-  { type: "image", src: "/images/portfolio-real/sala-cantinho-bar.webp", likes: 108, comments: 12 },
-  { type: "image", src: "/images/portfolio-real/quarto-cabeceira-led.webp", likes: 58, comments: 3 },
+const videos = [
+  {
+    src: "/videos/sala-tv-tour.mp4",
+    poster: "/images/portfolio-real/sala-tv-tour-poster.webp",
+  },
 ];
 
-function PostTile({ post }: { post: Post }) {
-  return (
-    <a
-      href={INSTAGRAM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative aspect-square overflow-hidden rounded-md"
-    >
-      {post.type === "video" ? (
-        <video
-          src={post.src}
-          poster={post.poster}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-      ) : (
-        <img
-          src={post.src}
-          alt="Projeto Casa's Decor no Instagram"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-        />
-      )}
-
-      {post.type === "video" && (
-        <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
-          <Play className="w-3 h-3 fill-white text-white" />
-        </div>
-      )}
-
-      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-        <span className="flex items-center gap-1.5 text-white text-sm font-medium">
-          <Heart className="w-4 h-4 fill-white" />
-          {post.likes}
-        </span>
-        <span className="flex items-center gap-1.5 text-white text-sm font-medium">
-          <MessageCircle className="w-4 h-4 fill-white" />
-          {post.comments}
-        </span>
-      </div>
-    </a>
-  );
-}
-
 export default function InstagramSection() {
+  const [muted, setMuted] = useState(true);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const toggleSound = (index: number) => {
+    const el = videoRefs.current[index];
+    if (!el) return;
+    el.muted = !el.muted;
+    setMuted(el.muted);
+  };
+
   return (
     <section className="relative py-24 lg:py-32 bg-[#0A0A0F]">
       <div className="absolute top-0 left-[18%] w-px h-24 bg-gradient-to-b from-transparent via-[#1565C0]/10 to-transparent" />
 
       <div className="container">
-        <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
-          <div>
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          {/* Text */}
+          <Reveal className="lg:col-span-2 order-2 lg:order-1">
             <span className="text-[#42A5F5] text-xs font-semibold uppercase tracking-[0.2em]">
               Instagram
             </span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mt-5 leading-[1.1]">
               Acompanhe de perto
             </h2>
-          </div>
+            <p className="text-gray-400 mt-6 text-base leading-relaxed max-w-sm">
+              Bastidores, projetos recém-entregues e o dia a dia da marcenaria
+              — a gente posta por lá.
+            </p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#1565C0] hover:bg-[#1256A8] text-white font-semibold px-6 py-3 rounded-md text-sm mt-8 transition-colors duration-200"
+            >
+              <Instagram className="w-4 h-4" />
+              Seguir {INSTAGRAM_HANDLE}
+            </a>
+          </Reveal>
 
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 shrink-0 border border-white/10 hover:border-[#1565C0]/40 text-white font-medium px-5 py-2.5 rounded-md text-sm transition-colors duration-200"
-          >
-            <Instagram className="w-4 h-4 text-[#42A5F5]" />
-            Seguir {INSTAGRAM_HANDLE}
-          </a>
-        </Reveal>
+          {/* Featured video(s) */}
+          <Reveal delay={0.1} className="lg:col-span-3 order-1 lg:order-2">
+            <div
+              className={`grid gap-4 ${
+                videos.length > 1 ? "sm:grid-cols-2" : "max-w-xs mx-auto"
+              }`}
+            >
+              {videos.map((video, index) => (
+                <a
+                  key={index}
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block aspect-[9/16] rounded-lg overflow-hidden bg-black"
+                >
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[index] = el;
+                    }}
+                    src={video.src}
+                    poster={video.poster}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted={muted}
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-        <Reveal delay={0.1} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-          {posts.map((post, index) => (
-            <PostTile key={index} post={post} />
-          ))}
-        </Reveal>
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                    <Play className="w-3.5 h-3.5 fill-white text-white" />
+                  </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSound(index);
+                    }}
+                    aria-label={muted ? "Ativar som" : "Silenciar"}
+                    className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-black/70 transition-colors"
+                  >
+                    {muted ? (
+                      <VolumeX className="w-4 h-4 text-white" />
+                    ) : (
+                      <Volume2 className="w-4 h-4 text-white" />
+                    )}
+                  </button>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
